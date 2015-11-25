@@ -112,6 +112,8 @@ h1 {
 }
 
 .b-directory {
+  clear: both;
+  overflow: hidden;
   margin: 20px 0 40px 0;
 
   &__controls {
@@ -134,6 +136,11 @@ h1 {
       padding: 15px;
       vertical-align: top;
 
+    }
+
+    th {
+      padding: 10px 15px;
+
       &:first-child {
         width: 200px;
       }
@@ -141,10 +148,6 @@ h1 {
       &:last-child {
         width: 130px;
       }
-    }
-
-    th {
-      padding: 10px 15px;
     }
 
     tr:first-child {

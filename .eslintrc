@@ -22,7 +22,10 @@
     "it": true,
     "expect": true,
     "sinon": true,
-    "$": true
+    "$": true,
+    "jQuery": true,
+    "React": true,
+    "ReactDOM": true
   },
 
   "parser": "babel-eslint",

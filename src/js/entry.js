@@ -1,5 +1,45 @@
 'use strict';
 
+var DatePicker = React.createClass({
+  displayName: 'DatePicker',
+
+  componentDidMount: function() {
+    this._initDatePicker();
+  },
+
+  componentWillReceiveProps: function(props) {
+    this._destroyDatePicker();
+  },
+
+  componentDidUpdate: function() {
+    this._initDatePicker();
+  },
+
+  componentWillUnmount: function() {
+    this._destroyDatePicker();
+  },
+
+  _initDatePicker: function() {
+    var element = ReactDOM.findDOMNode(this);
+
+    $(element).datepicker({
+      showOn: 'button',
+      buttonText: '',
+      dateFormat: 'dd.mm.yy'
+    });
+  },
+
+  _destroyDatePicker: function() {
+    var element = this.getDOMNode();
+
+    $(element).datepicker('destroy');
+  },
+
+  render: function() {
+    return <input type='text' {...this.props}/>;
+  }
+});
+
 const Entry = React.createClass({
   displayName: 'Entry',
 
@@ -71,11 +111,10 @@ const Entry = React.createClass({
             <label forHtml='b-entry__form-end-date'>
               {endDate.name}
             </label>
-            <input
+            <DatePicker
               className='b-entry__input_date'
               defaultValue={endDate.value}
               id='b-entry__form-end-date'
-              type='date'
             />
           </div>
           <div className='form-group'>

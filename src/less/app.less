@@ -244,6 +244,27 @@ h1 {
     width: 45px;
   }
 
+  input&__input_date {
+    width: 95px;
+
+    & + .ui-datepicker-trigger {
+      position: relative;
+      left: -26px;
+
+      .b-btn();
+      height: 24px;
+      width: 26px;
+      vertical-align: top;
+      border-radius: @border-radius-field;
+      box-shadow: none;
+      background-image: url("../images/icon_calendar.png"), linear-gradient(to bottom, #fff, #d3d3d3);
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      border-color: #ccc #b8b8b8 #b8b8b8 #ccc;
+    }
+  }
+
   &__controls {
     margin-top: 35px;
   }

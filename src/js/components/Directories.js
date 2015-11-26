@@ -1,26 +1,26 @@
 import React from 'react';
 
-var Directories = React.createClass({
+const Directories = React.createClass({
   displayName: 'Directories',
 
   propTypes: {
     items: React.PropTypes.arrayOf(React.PropTypes.object)
   },
 
-  render: function() {
-    const createItem = (item) => {
-      return (
-        <li className='b-directories__item' key={item.id}>
-          <a href='#'>
-            {item.name}
-          </a>
-        </li>
-      );
-    };
+  renderItem: function (item) {
+    return (
+      <li className='b-directories__item' key={item.id}>
+        <a href='#'>
+          {item.name}
+        </a>
+      </li>
+    );
+  },
 
+  render: function() {
     return (
       <ul className='b-directories'>
-        {this.props.items.map(createItem)}
+        {this.props.items.map(this.renderItem)}
       </ul>
     );
   }

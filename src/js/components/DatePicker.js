@@ -2,7 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import '../../vendor/jquery-ui.custom.min.js';
 
-var DatePicker = React.createClass({
+const DatePicker = React.createClass({
   displayName: 'DatePicker',
 
   componentDidMount: function() {
@@ -22,7 +22,7 @@ var DatePicker = React.createClass({
   },
 
   _initDatePicker: function() {
-    var element = findDOMNode(this);
+    const element = findDOMNode(this);
 
     $(element).datepicker({
       showOn: 'button',
@@ -32,7 +32,7 @@ var DatePicker = React.createClass({
   },
 
   _destroyDatePicker: function() {
-    var element = this.getDOMNode();
+    const element = this.getDOMNode();
 
     $(element).datepicker('destroy');
   },

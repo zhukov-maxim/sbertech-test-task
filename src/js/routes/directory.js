@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import Directory from '../components/Directory';
 
-var outlet = document.getElementById('directory-outlet');
+const outlet = document.getElementById('directory-outlet');
 
 if (outlet !== null) {
   $.getJSON('json/getDirectory.json', function(json) {

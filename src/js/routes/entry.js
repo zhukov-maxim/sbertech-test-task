@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import Entry from '../components/Entry';
 
-var outlet = document.getElementById('entry-outlet');
+const outlet = document.getElementById('entry-outlet');
 
 if (outlet !== null) {
   $.getJSON('json/getEntry.json', function(json) {

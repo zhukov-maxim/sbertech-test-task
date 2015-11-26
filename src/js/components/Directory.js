@@ -21,32 +21,32 @@ const Directory = React.createClass({
     });
   },
 
+  renderHeaderCell: function (item) {
+    return (
+      <th key={item.id}>{item.name}</th>
+    );
+  },
+
+  renderItemRow: function (item) {
+    return (
+      <tr key={item.id}>
+        <td><a href='#'>{item.name}</a></td>
+        <td>{item.weight}</td>
+        <td>{item.point}</td>
+        <td>{item.endDate}</td>
+      </tr>
+    );
+  },
+
+  applyFilter: function (item) {
+    const name = item.name.toLowerCase();
+    const filterText = this.state.filterText.toLowerCase();
+
+    return name.indexOf(filterText) !== -1;
+  },
+
   render: function() {
-    const createHeaderCell = (item) => {
-      return (
-        <th key={item.id}>{item.name}</th>
-      );
-    };
-
-    const createItemRow = (item) => {
-      return (
-        <tr key={item.id}>
-          <td><a href='#'>{item.name}</a></td>
-          <td>{item.weight}</td>
-          <td>{item.point}</td>
-          <td>{item.endDate}</td>
-        </tr>
-      );
-    };
-
-    const applyFilter = (item) => {
-      const name = item.name.toLowerCase();
-      const filterText = this.state.filterText.toLowerCase();
-
-      return name.indexOf(filterText) !== -1;
-    };
-
-    const filteredItems = this.props.items.filter(applyFilter);
+    const filteredItems = this.props.items.filter(this.applyFilter);
 
     return (
       <div className='b-directory'>
@@ -57,11 +57,11 @@ const Directory = React.createClass({
         <table className='b-directory__table'>
           <thead>
             <tr>
-              {this.props.fields.map(createHeaderCell)}
+              {this.props.fields.map(this.renderHeaderCell)}
             </tr>
           </thead>
           <tbody>
-            {filteredItems.map(createItemRow)}
+            {filteredItems.map(this.renderItemRow)}
           </tbody>
         </table>
         <div className='b-directory__filter'>

@@ -10,6 +10,17 @@ const Entry = React.createClass({
     title: React.PropTypes.string
   },
 
+  renderSelectOption: function (item) {
+    return (
+      <option
+        defaultValue={item.id}
+        key={item.id}
+      >
+        {item.name}
+      </option>
+    );
+  },
+
   render: function() {
     const finder = (id) => (element) => element.id === id;
 
@@ -23,17 +34,6 @@ const Entry = React.createClass({
     const selectedUnit = units.values.find(function (element) {
       return element.selected === true;
     });
-
-    const createSelectOption = (item) => {
-      return (
-        <option
-          defaultValue={item.id}
-          key={item.id}
-        >
-          {item.name}
-        </option>
-      );
-    };
 
     return (
       <div className='b-entry'>
@@ -100,7 +100,7 @@ const Entry = React.createClass({
               defaultValue={selectedUnit.id}
               id='b-entry__form-units'
             >
-              {units.values.map(createSelectOption)}
+              {units.values.map(this.renderSelectOption)}
             </select>
           </div>
           <div className='form-group b-entry__controls'>

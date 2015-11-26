@@ -11,14 +11,18 @@ const Entry = React.createClass({
   },
 
   render: function() {
-    const name = this.props.items.find(function (element) { return element.id === 'name'; });
-    const weight = this.props.items.find(function (element) { return element.id === 'weight'; });
-    const point = this.props.items.find(function (element) { return element.id === 'point'; });
-    const endDate = this.props.items.find(function (element) { return element.id === 'endDate'; });
-    const describe = this.props.items.find(function (element) { return element.id === 'describe'; });
-    const units = this.props.items.find(function (element) { return element.id === 'units'; });
+    const finder = (id) => (element) => element.id === id;
 
-    const selectedUnit = units.values.find(function (element) { return element.selected === true; });
+    const name = this.props.items.find(finder('name'));
+    const weight = this.props.items.find(finder('weight'));
+    const point = this.props.items.find(finder('point'));
+    const endDate = this.props.items.find(finder('endDate'));
+    const describe = this.props.items.find(finder('describe'));
+    const units = this.props.items.find(finder('units'));
+
+    const selectedUnit = units.values.find(function (element) {
+      return element.selected === true;
+    });
 
     const createSelectOption = (item) => {
       return (

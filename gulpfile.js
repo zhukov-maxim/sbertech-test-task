@@ -47,7 +47,7 @@ gulp.task('json', function() {
 // LESS
 gulp.task('less', function() {
   return gulp.src([
-    'src/**/*.less'
+    'src/less/app.less'
   ])
   .pipe(plumber())
   .pipe(less())

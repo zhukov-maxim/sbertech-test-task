@@ -1,0 +1,56 @@
+@import "variables";
+
+body {
+  background: @color-bg;
+  padding: 20px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+}
+
+input,
+textarea {
+  border: 1px solid @color-border;
+  border-radius: @border-radius-field;
+  padding: 6px 5px 4px;
+
+  &::placeholder {
+    color: #777;
+  }
+
+  &:disabled {
+    color: @color-text;
+    border-color: @color-border-disabled;
+    background-color: @color-field-bg-disabled;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-group  {
+  margin-bottom: 14px;
+}
+
+a,
+a:hover {
+  color: @color-link;
+  text-decoration-color: @color-link-underline;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 10px 0;
+}

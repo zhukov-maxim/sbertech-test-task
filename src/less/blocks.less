@@ -1,0 +1,200 @@
+@import "variables";
+
+.b-breadcrumbs {
+  margin: 0 0 10px 0;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &::after {
+      content: "→";
+      display: inline-block;
+      margin: 0 1px 0 3px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 14px;
+  }
+}
+
+.b-directories {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 40px 0;
+
+  &__item {
+    margin-bottom: 10px;
+  }
+}
+
+.b-directory {
+  clear: both;
+  overflow: hidden;
+  margin: 20px 0 40px 0;
+
+  &__controls {
+    margin-bottom: 5px;
+  }
+
+  &__table {
+    float: left;
+    width: 500px;
+    border-collapse: collapse;
+
+    td,
+    th {
+      text-align: left;
+      font-weight: normal;
+    }
+
+    td {
+      background-color: #fff;
+      padding: 15px;
+      vertical-align: top;
+
+    }
+
+    th {
+      padding: 10px 15px;
+
+      &:first-child {
+        width: 200px;
+      }
+
+      &:last-child {
+        width: 130px;
+      }
+    }
+
+    tr:first-child {
+      td:first-child {
+        border-top-left-radius: @border-radius-big;
+      }
+
+      td:last-child {
+        border-top-right-radius: @border-radius-big;
+      }
+    }
+
+    tr:last-child {
+      td:first-child {
+        border-bottom-left-radius: @border-radius-big;
+      }
+
+      td:last-child {
+        border-bottom-right-radius: @border-radius-big;
+      }
+    }
+
+    tr:not(:last-child) > td {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  &__filter {
+    float: left;
+    margin-left: 30px;
+
+    &-header {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+
+    &-body {
+      border: 1px solid @color-border;
+      padding: 15px;
+      border-radius: @border-radius-big;
+      min-height: 60px;
+    }
+
+    input {
+      display: block;
+      box-sizing: border-box;
+      width: 180px;
+      padding: 6px 5px 3px;
+    }
+  }
+}
+
+.b-btn {
+  display: inline-block;
+  padding: 4px 12px 5px;
+  border-radius: @border-radius-button;
+  box-shadow: @shadow-button;
+  color: @color-text;
+  border-color: #dce6e0 #c8d1cb #afb7b2;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: default;
+  background: linear-gradient(to bottom, #fff, #d3d3d3);
+
+  &:hover {
+    color: @color-text;
+    text-decoration: none;
+  }
+
+  &_primary {
+    background: linear-gradient(to bottom, #9cffb2, #70d487);
+  }
+
+  & + & {
+    margin-left: 15px;
+  }
+}
+
+.b-entry {
+  label {
+    display: inline-block;
+    width: 158px;
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    width: 227px;
+  }
+
+  input&__input_short {
+    width: 45px;
+  }
+
+  input&__input_date {
+    width: 95px;
+
+    & + .ui-datepicker-trigger {
+      position: relative;
+      left: -26px;
+
+      .b-btn();
+      height: 24px;
+      width: 26px;
+      vertical-align: top;
+      border-radius: @border-radius-field;
+      box-shadow: none;
+      background-image: url("../images/icon_calendar.png"), linear-gradient(to bottom, #fff, #d3d3d3);
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      border-color: #ccc #b8b8b8 #b8b8b8 #ccc;
+    }
+  }
+
+  &__controls {
+    margin-top: 35px;
+  }
+
+  textarea {
+    height: 68px;
+    vertical-align: baseline;
+  }
+}

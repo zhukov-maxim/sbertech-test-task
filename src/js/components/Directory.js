@@ -1,4 +1,4 @@
-'use strict';
+import React from 'react';
 
 const Directory = React.createClass({
   displayName: 'Directory',
@@ -83,13 +83,4 @@ const Directory = React.createClass({
   }
 });
 
-$.getJSON('json/getDirectory.json', function(json) {
-  const fields = json.response.directory.fields;
-  const items = json.response.directory.items;
-  const title = json.response.directory.name;
-
-  ReactDOM.render(
-    <Directory fields={fields} items={items} title={title}/>,
-    document.getElementById('content')
-  );
-});
+export default Directory;

@@ -23,9 +23,7 @@
     "expect": true,
     "sinon": true,
     "$": true,
-    "jQuery": true,
-    "React": true,
-    "ReactDOM": true
+    "jQuery": true
   },
 
   "parser": "babel-eslint",

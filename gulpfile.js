@@ -21,7 +21,7 @@ var w3cjs = require('gulp-w3cjs');
 // var imagemin = require('gulp-imagemin');
 // var sourcemaps = require('gulp-sourcemaps');
 // var uglify = require('gulp-uglify');
-var webpack = require('gulp-webpack');
+var webpack = require('webpack-stream');
 
 // Cleaning
 gulp.task('clean', function(callback) {

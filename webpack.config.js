@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 
 var config = {
@@ -22,11 +23,6 @@ var config = {
         }
       },
       {
-        test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      },
-      {
         test: /\.css$/,
         loader: 'style!css'
       },
@@ -39,7 +35,13 @@ var config = {
   resolve: {
     root: path.resolve('./src'),
     extensions: ['', '.js', '.jsx']
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 };
 
 module.exports = config;

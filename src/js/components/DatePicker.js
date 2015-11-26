@@ -1,5 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
+import '../../vendor/jquery-ui.custom.min.js';
 
 var DatePicker = React.createClass({
   displayName: 'DatePicker',

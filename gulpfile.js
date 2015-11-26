@@ -5,7 +5,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 // var changed = require('gulp-changed');
-var eslint = require('gulp-eslint');
 var del = require('del');
 var flatten = require('gulp-flatten');
 var gulp = require('gulp');
@@ -58,21 +57,20 @@ gulp.task('less', function() {
   .pipe(browserSync.stream());
 });
 
-// Vendor JS
-gulp.task('vendor-js', function() {
-  return gulp.src([
-    'src/vendor/**/*.js',
-    'node_modules/jquery/dist/jquery.min.js'
-  ])
-  .pipe(gulp.dest('dist/js'));
-});
-
 // Vendor CSS
 gulp.task('vendor-css', function() {
   return gulp.src([
-    'src/vendor/**/*.css'
+    'node_modules/jquery-ui/themes/smoothness/jquery-ui.min.css'
   ])
   .pipe(gulp.dest('dist/css'));
+});
+
+// Vendor Images
+gulp.task('vendor-images', function() {
+  return gulp.src([
+    'node_modules/jquery-ui/themes/smoothness/images/**/*',
+  ])
+  .pipe(gulp.dest('dist/css/images'));
 });
 
 // Images
@@ -117,13 +115,13 @@ gulp.task('default', function(callback) {
   runSequence(
     'clean',
     [
+      'webpack',
       'html',
       'json',
       'less',
-      'vendor-js',
       'vendor-css',
-      'images',
-      'webpack'
+      'vendor-images',
+      'images'
     ],
     'watch',
     'browserSync',

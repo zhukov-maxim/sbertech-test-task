@@ -1,26 +1,11 @@
-/* eslint-env node */
-
 var autoprefixer = require('gulp-autoprefixer');
-// var bootlint  = require('gulp-bootlint');
 var browserSync = require('browser-sync');
-var concat = require('gulp-concat');
-// var changed = require('gulp-changed');
 var del = require('del');
 var flatten = require('gulp-flatten');
 var gulp = require('gulp');
-// var htmlhint = require('gulp-htmlhint');
-// var include = require('gulp-file-include');
 var less = require('gulp-less');
-// var minifyCSS = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
-// var prettify = require('gulp-prettify');
-// var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
-var w3cjs = require('gulp-w3cjs');
-// var base64 = require('gulp-base64');
-// var imagemin = require('gulp-imagemin');
-// var sourcemaps = require('gulp-sourcemaps');
-// var uglify = require('gulp-uglify');
 var webpack = require('webpack-stream');
 
 // Cleaning
@@ -28,7 +13,7 @@ gulp.task('clean', function(callback) {
   del('dist', callback);
 });
 
-// HTML development
+// HTML
 gulp.task('html', function() {
   return gulp.src(['src/**/*.html'])
     .pipe(plumber())
@@ -52,7 +37,6 @@ gulp.task('less', function() {
   .pipe(plumber())
   .pipe(less())
   .pipe(autoprefixer('last 2 version', 'ie 9'))
-  .pipe(concat('app.css'))
   .pipe(gulp.dest('dist/css'))
   .pipe(browserSync.stream());
 });
@@ -125,23 +109,6 @@ gulp.task('default', function(callback) {
     ],
     'watch',
     'browserSync',
-    callback
-  );
-});
-
-// Validates html against w3cjs.
-gulp.task('w3cjs', function() {
-  return gulp.src('dist/*.html')
-    .pipe(plumber())
-    .pipe(w3cjs());
-});
-
-// Can generate HTML Warning after a lot of validation requests.
-gulp.task('validate', function(callback) {
-  runSequence(
-    'clean',
-    'html',
-    'w3cjs',
     callback
   );
 });

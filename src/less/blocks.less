@@ -1,8 +1,6 @@
 @import "variables";
 
 .b-breadcrumbs {
-  margin: 0 0 10px 0;
-
   &__list {
     list-style: none;
     padding: 0;
@@ -37,17 +35,17 @@
 
 .b-directory {
   clear: both;
-  overflow: hidden;
-  margin: 20px 0 40px 0;
+  margin-bottom: 40px;
 
   &__controls {
-    margin-bottom: 5px;
+    margin: 20px 0 5px;
   }
 
   &__table {
     float: left;
     width: 500px;
     border-collapse: collapse;
+    margin-bottom: 20px;
 
     td,
     th {
@@ -64,17 +62,21 @@
 
     th {
       padding: 10px 15px;
+      white-space: nowrap;
 
       &:first-child {
-        width: 200px;
+        width: 180px;
       }
 
       &:last-child {
-        width: 130px;
+        width: 120px;
       }
     }
 
     tr:first-child {
+      border-top-left-radius: @border-radius-big;
+      border-top-right-radius: @border-radius-big;
+
       td:first-child {
         border-top-left-radius: @border-radius-big;
       }
@@ -85,6 +87,9 @@
     }
 
     tr:last-child {
+      border-bottom-left-radius: @border-radius-big;
+      border-bottom-right-radius: @border-radius-big;
+
       td:first-child {
         border-bottom-left-radius: @border-radius-big;
       }
@@ -96,6 +101,12 @@
 
     tr:not(:last-child) > td {
       border-bottom: 1px solid #ddd;
+    }
+
+
+    tbody {
+      border-radius: @border-radius-big;
+      box-shadow: @shadow-table;
     }
   }
 
@@ -119,14 +130,15 @@
       display: block;
       box-sizing: border-box;
       width: 180px;
-      padding: 6px 5px 3px;
+      padding: 6px 5px 5px;
+      height: 26px;
     }
   }
 }
 
 .b-btn {
   display: inline-block;
-  padding: 4px 12px 5px;
+  padding: 4px 11px 5px;
   border-radius: @border-radius-button;
   box-shadow: @shadow-button;
   color: @color-text;
@@ -136,6 +148,7 @@
   text-decoration: none;
   font-size: 14px;
   cursor: default;
+  background: #d3d3d3;
   background: linear-gradient(to bottom, #fff, #d3d3d3);
 
   &:hover {
@@ -144,6 +157,7 @@
   }
 
   &_primary {
+    background: #70d487;
     background: linear-gradient(to bottom, #9cffb2, #70d487);
   }
 
@@ -155,8 +169,11 @@
 .b-entry {
   label {
     display: inline-block;
-    width: 158px;
+    width: 160px;
     font-size: 14px;
+    vertical-align: top;
+    position: relative;
+    top: 4px;
   }
 
   input,
@@ -165,26 +182,25 @@
   }
 
   input&__input_short {
-    width: 45px;
+    width: 38px;
   }
 
   input&__input_date {
-    width: 95px;
+    width: 98px;
 
     & + .ui-datepicker-trigger {
+      .b-btn();
       position: relative;
       left: -26px;
-
-      .b-btn();
-      height: 24px;
+      height: 26px;
       width: 26px;
       vertical-align: top;
       border-radius: @border-radius-field;
       box-shadow: none;
+      background-image: url("../images/icon_calendar.png");
       background-image: url("../images/icon_calendar.png"), linear-gradient(to bottom, #fff, #d3d3d3);
       background-repeat: no-repeat;
       background-position: center center;
-
       border-color: #ccc #b8b8b8 #b8b8b8 #ccc;
     }
   }
@@ -196,5 +212,10 @@
   textarea {
     height: 68px;
     vertical-align: baseline;
+  }
+
+  select {
+    position: relative;
+    top: 3px;
   }
 }
